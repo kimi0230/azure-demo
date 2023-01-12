@@ -21,6 +21,7 @@ func start &> ~/output.txt &
 
 # 測試 : 輸出是 6300
 curl "http://localhost:7071/api/simple-interest?principal=5000&rate=.035&term=36" -w "\n"
+curl "https://gogopowerkimi.azurewebsites.net/api/simple-interest?principal=5000&rate=.035&term=36" -w "\n"
 ```
 
 ## Reference
