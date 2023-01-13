@@ -24,6 +24,10 @@ curl "http://localhost:7071/api/simple-interest?principal=5000&rate=.035&term=36
 curl "https://gogopowerkimi.azurewebsites.net/api/simple-interest?principal=5000&rate=.035&term=36" -w "\n"
 ```
 
+## Run [microsoft/winget-cli-restsource](https://github.com/microsoft/winget-cli-restsource)
+
+![](assets/images/vs-build-config.png)
+
 ## Reference
 * [How to fix Azure functions: Incompatible Node.js version (v16.4.1)](https://stackoverflow.com/questions/70427342/how-to-fix-azure-functions-incompatible-node-js-version-v16-4-1)
 * [在 macOS 上安裝 Azure CLI](https://learn.microsoft.com/zh-tw/cli/azure/install-azure-cli-macos)
