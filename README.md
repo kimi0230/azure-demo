@@ -21,8 +21,15 @@ func start &> ~/output.txt &
 
 # 測試 : 輸出是 6300
 curl "http://localhost:7071/api/simple-interest?principal=5000&rate=.035&term=36" -w "\n"
-curl "https://gogopowerkimi.azurewebsites.net/api/simple-interest?principal=5000&rate=.035&term=36" -w "\n"
+curl "https://kimi-functions-demo.azurewebsites.net/api/simple-interest?code=<your code>&principal=5000&rate=.035&term=36" -w "\n"
 ```
+
+## 發佈至 Azure  func azure functionapp publish)
+```sh
+func azure functionapp publish <app_name>
+func azure functionapp publish kimi-functions-demo
+```
+<app_name> 是目標函式應用程式在 Azure 中的名稱，而不是您的專案資料夾名稱，兩者可能會不同
 
 ## Run [microsoft/winget-cli-restsource](https://github.com/microsoft/winget-cli-restsource)
 

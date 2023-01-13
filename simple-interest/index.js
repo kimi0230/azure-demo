@@ -4,7 +4,7 @@ module.exports = async function (context, req) {
   const principal = parseFloat(req.query.principal);
   const rate = parseFloat(req.query.rate);
   const term = parseFloat(req.query.term);
-
+  console.log("kkkkkkkkkkkkkkkkkkkkk");
   if ([principal, rate, term].some(isNaN)) {
     // If any empty or non-numeric values, return a 400 response with an
     // error message
