@@ -33,6 +33,7 @@ func azure functionapp publish kimi-functions-demo
 ### 測試
 將 `&principal=5000&rate=.035&term=36` 新增至 URL 結尾處 (請務必保留 `code` 參數)
 `code` 可從`函數應用程式`->`應用程式金鑰`找到
+![](assets/images/api-code.png)
 
 ```sh
 curl "https://kimi-functions-demo.azurewebsites.net/api/simple-interest?code=<your code>&principal=5000&rate=.035&term=36" -w "\n"
