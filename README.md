@@ -8,6 +8,8 @@ brew install azure-functions-core-tools@4
 brew link --overwrite azure-functions-core-tools@4
 ```
 
+![](assets/images/AzureFunctionsTools-version.png)
+
 ### Install az cli
 ```sh
 brew update && brew install azure-cli
