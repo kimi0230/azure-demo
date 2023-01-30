@@ -25,14 +25,77 @@ func start &> ~/output.txt &
 curl "http://localhost:7071/api/simple-interest?principal=5000&rate=.035&term=36" -w "\n"
 ```
 
-## 發佈至 Azure  func azure functionapp publish)
+### Create and execute Azure functions
+
+1. `func init`
+建立新的函式專案
+![](assets/images/func-init-2.png)
+
+2. `func new`
+在函式專案資料夾中執行 func new 將會建立新的函式，以及開始進行開發所需的所有檔案。
+![](assets/images/func-new-2.png)
+
+3. `func start`
+本地測試
+
+![](assets/images/func-start-1.png)
+![](assets/images/func-start-2.png)
+
+5. 去 https://portal.azure.com/#home 新增 functions
+![](assets/images/functions-1.png)
+![](assets/images/functions-2.png)
+
+
+6. `func azure functionapp publish`
+Deploy to Azure
+可以使用 [Azure Sandbox](https://learn.microsoft.com/zh-tw/training/modules/develop-test-deploy-azure-functions-with-core-tools/3-exercise-create-function-core-tools)
+
+沙箱僅可用於完成 Microsoft Learn 上的訓練。 禁止用於其他任何用途，否則可能導致永久無法存取沙箱
+
+去 https://portal.azure.com/#home 開始使用 functions
+
 ```sh
+# sample
 func azure functionapp publish <app_name>
+
+# demo
 func azure functionapp publish kimi-functions-demo
 ```
-<app_name> 是目標函式應用程式在 Azure 中的名稱，而不是您的專案資料夾名稱，兩者可能會不同
 
-### 測試
+`<app_name>` 是目標函式應用程式在 Azure 中的名稱，而不是您的專案資料夾名稱，兩者可能會不同
+![](assets/images/functionapp-publish.png)
+
+7. Call API
+
+```sh
+curl https://kimi-functions-demo.azurewebsites.net/api/demo-http-trigger-function?code=wqT6RcBf6nnX16QcljN2OKOXGyD77YkaLYQQlGvdviB0AzFuqwZiAA==
+```
+
+## More Example
+https://learn.microsoft.com/zh-tw/training/modules/develop-test-deploy-azure-functions-with-core-tools/3-exercise-create-function-core-tools
+
+```javascript
+module.exports = async function(context, req) {
+  // Try to grab principal, rate, and term from the query string and
+  // parse them as numbers
+  const principal = parseFloat(req.query.principal);
+  const rate = parseFloat(req.query.rate);
+  const term = parseFloat(req.query.term);
+
+  if ([principal, rate, term].some(isNaN)) {
+    // If any empty or non-numeric values, return a 400 response with an
+    // error message
+    context.res = {
+      status: 400,
+      body: "Please supply principal, rate and term in the query string"
+    };
+  } else {
+    // Otherwise set the response body to the product of the three values
+    context.res = { body: principal * rate * term };
+  }
+};
+```
+
 將 `&principal=5000&rate=.035&term=36` 新增至 URL 結尾處 (請務必保留 `code` 參數)
 `code` 可從`函數應用程式`->`應用程式金鑰`找到
 ![](assets/images/api-code.png)
@@ -42,7 +105,7 @@ curl "https://kimi-functions-demo.azurewebsites.net/api/simple-interest?code=<yo
 ```
 ![](assets/images/demo-2.png)
 
-## Run [microsoft/winget-cli-restsource](https://github.com/microsoft/winget-cli-restsource)
+## Local Run [microsoft/winget-cli-restsource](https://github.com/microsoft/winget-cli-restsource)
 
 ![](assets/images/vs-build-config.png)
 
