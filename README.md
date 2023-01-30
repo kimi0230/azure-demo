@@ -41,12 +41,12 @@ curl "http://localhost:7071/api/simple-interest?principal=5000&rate=.035&term=36
 ![](assets/images/func-start-1.png)
 ![](assets/images/func-start-2.png)
 
-5. 去 https://portal.azure.com/#home 新增 functions
+4. 去 https://portal.azure.com/#home 新增 functions
 ![](assets/images/functions-1.png)
 ![](assets/images/functions-2.png)
 
 
-6. `func azure functionapp publish`
+5. `func azure functionapp publish`
 Deploy to Azure
 可以使用 [Azure Sandbox](https://learn.microsoft.com/zh-tw/training/modules/develop-test-deploy-azure-functions-with-core-tools/3-exercise-create-function-core-tools)
 
@@ -64,6 +64,9 @@ func azure functionapp publish kimi-functions-demo
 
 `<app_name>` 是目標函式應用程式在 Azure 中的名稱，而不是您的專案資料夾名稱，兩者可能會不同
 ![](assets/images/functionapp-publish.png)
+
+6. `code` 可從`函數應用程式`->`應用程式金鑰`找到
+![](assets/images/api-code.png)
 
 7. Call API
 
@@ -97,8 +100,6 @@ module.exports = async function(context, req) {
 ```
 
 將 `&principal=5000&rate=.035&term=36` 新增至 URL 結尾處 (請務必保留 `code` 參數)
-`code` 可從`函數應用程式`->`應用程式金鑰`找到
-![](assets/images/api-code.png)
 
 ```sh
 curl "https://kimi-functions-demo.azurewebsites.net/api/simple-interest?code=<your code>&principal=5000&rate=.035&term=36" -w "\n"
