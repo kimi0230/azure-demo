@@ -11,9 +11,26 @@ brew link --overwrite azure-functions-core-tools@4
 ![](assets/images/AzureFunctionsTools-version.png)
 
 ### Install az cli
+[How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+
 ```sh
+# Mac
+# https://learn.microsoft.com/zh-tw/cli/azure/install-azure-cli-macos
 brew update && brew install azure-cli
+
+# Windows 
+# https://learn.microsoft.com/zh-tw/cli/azure/install-azure-cli-windows?tabs=winget
+winget install -e --id Microsoft.AzureCLI
 ```
+
+![](assets/images/install-azcli.png)
+
+### Login Azure
+
+```sh
+az login
+```
+![](assets/images/az-login.png)
 
 ## Azure functions tool commands
 ```sh
@@ -58,6 +75,11 @@ Deploy to Azure
 # sample
 func azure functionapp publish <app_name>
 
+# You're trying to use v3 tooling to publish to a non-v3 function app (FUNCTIONS_EXTENSION_VERSION is set to ~4).
+# You can pass --force to force update the app to v3, or downgrade to v1 or v2 tooling for publishing.
+# https://github.com/Azure/azure-functions-core-tools/issues/1770
+func azure functionapp publish <app_name> --fource
+
 # demo
 func azure functionapp publish kimi-functions-demo
 ```
@@ -68,7 +90,11 @@ func azure functionapp publish kimi-functions-demo
 6. `code` 可從`函數應用程式`->`應用程式金鑰`找到
 ![](assets/images/api-code.png)
 
-7. Call API
+
+7. Azure functions configuration
+![](assets/images/functions-configuration.png)
+
+8. Call API
 
 ```sh
 curl https://kimi-functions-demo.azurewebsites.net/api/demo-http-trigger-function?code=wqT6RcBf6nnX16QcljN2OKOXGyD77YkaLYQQlGvdviB0AzFuqwZiAA==
