@@ -78,10 +78,10 @@ func azure functionapp publish <app_name>
 # You're trying to use v3 tooling to publish to a non-v3 function app (FUNCTIONS_EXTENSION_VERSION is set to ~4).
 # You can pass --force to force update the app to v3, or downgrade to v1 or v2 tooling for publishing.
 # https://github.com/Azure/azure-functions-core-tools/issues/1770
-func azure functionapp publish <app_name> --fource
+func azure functionapp publish <app_name> --javascript 
 
 # demo
-func azure functionapp publish kimi-functions-demo
+func azure functionapp publish kimi-functions-demo --javascript
 ```
 
 `<app_name>` 是目標函式應用程式在 Azure 中的名稱，而不是您的專案資料夾名稱，兩者可能會不同
