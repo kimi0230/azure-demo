@@ -136,6 +136,17 @@ curl "https://kimi-functions-demo.azurewebsites.net/api/simple-interest?code=<yo
 
 ![](assets/images/vs-build-config.png)
 
+## 將應用程式從 Azure Functions 3.x 版移轉至 4.x 版
+https://learn.microsoft.com/zh-tw/azure/azure-functions/migrate-version-3-version-4?tabs=net6-in-proc%2Cazure-cli%2Cwindows&pivots=programming-language-csharp#run-the-pre-upgrade-validator
+
+```
+從 2022 年 12 月 13 日開始，在 Azure Functions 執行時間 2.x 版和 3.x 版上執行的函式應用程式已達到延長支援的 EOL) (生命週期結束。
+
+在期限之後，函式應用程式可以從 CI/CD DevOps 管線建立和部署，而且所有現有的應用程式都會繼續執行，而不會發生重大變更。 不過，您的應用程式不符合新功能、安全性修補程式和效能優化資格。 將相關服務支援升級至 4.x 版後，您會收到相關服務支援。
+
+這些執行階段版本的終止支援是因為這些舊版執行階段版本所需的 .NET Core 3.1 支援終止。 此需求會影響所有Azure Functions執行時間語言 (，例如 .NET、Python、node.js、PowerShell 等) 。
+```
+
 ## Reference
 * [How to fix Azure functions: Incompatible Node.js version (v16.4.1)](https://stackoverflow.com/questions/70427342/how-to-fix-azure-functions-incompatible-node-js-version-v16-4-1)
 * [在 macOS 上安裝 Azure CLI](https://learn.microsoft.com/zh-tw/cli/azure/install-azure-cli-macos)
