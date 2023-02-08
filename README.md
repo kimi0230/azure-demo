@@ -147,6 +147,8 @@ https://learn.microsoft.com/zh-tw/azure/azure-functions/migrate-version-3-versio
 這些執行階段版本的終止支援是因為這些舊版執行階段版本所需的 .NET Core 3.1 支援終止。 此需求會影響所有Azure Functions執行時間語言 (，例如 .NET、Python、node.js、PowerShell 等) 。
 ```
 
+[Issues you may meet when upgrading Azure function app to V4](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/issues-you-may-meet-when-upgrading-azure-function-app-to-v4/ba-p/3288983)
+
 ## Reference
 * [How to fix Azure functions: Incompatible Node.js version (v16.4.1)](https://stackoverflow.com/questions/70427342/how-to-fix-azure-functions-incompatible-node-js-version-v16-4-1)
 * [在 macOS 上安裝 Azure CLI](https://learn.microsoft.com/zh-tw/cli/azure/install-azure-cli-macos)
